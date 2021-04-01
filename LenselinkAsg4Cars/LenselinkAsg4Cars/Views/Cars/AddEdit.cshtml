@@ -1,0 +1,36 @@
+﻿@model Car
+@{
+    ViewBag.Title = "Add or Edit Car";
+}
+<form asp-controller="Cars" asp-action="Save" asp-route-id=@Model.ID>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>ID</td>
+            <td>@Model.IDString</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td><input type="text" maxlength="100" name="inputMakeModel" value="@Model.MakeModel" required /></td>
+        </tr>
+        <tr>
+            <td>Year</td>
+            <td><input type="number" maxlength="4" name="inputYear" value="@Model.Year" required /></td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td><input type="text" maxlength="50" name="inputColor" value="@Model.Color" required /></td>
+        </tr>
+        <tr>
+            <td>Miles</td>
+            <td><input type="number" maxlength="9" name="inputMiles" value="@Model.Mileage" required /></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="number" maxlength="9" name="inputPrice" value="@Model.Price" required /></td>
+        </tr>
+    </table>
+    <input type="submit" value="Save" />
+</form>
+<br />
+<a asp-controller="Cars" asp-action="List"
+   class="btn btn-primary">Back</a>

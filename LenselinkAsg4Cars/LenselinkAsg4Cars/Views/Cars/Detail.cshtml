@@ -1,0 +1,35 @@
+﻿@model Car
+@{
+    ViewBag.Title = "More Car Facts";
+}
+<h1>Car Details</h1>
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>ID</td>
+        <td>@Model.ID</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>@Model.MakeModel</td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td>@Model.Year</td>
+    </tr>
+    <tr>
+        <td>Color</td>
+        <td>@Model.Color</td>
+    </tr>
+    <tr>
+        <td>Miles</td>
+        <td>@Model.Mileage</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>$@Model.Price</td>
+    </tr>
+</table>
+<a asp-controller="Cars" asp-action="List"
+   class="btn btn-primary">Back</a>
+<a asp-controller="Cars" asp-action="AddEdit" asp-route-id=@Model.ID
+   class="btn btn-primary">Edit Car</a>
