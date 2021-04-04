@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace LenselinkAsg4Cars.Models
 {
@@ -14,7 +12,6 @@ namespace LenselinkAsg4Cars.Models
         public Car()
         {
             id++;
-            ID = id;
             ID = 0;
             MakeModel = "";
             Year = 0;
@@ -32,11 +29,25 @@ namespace LenselinkAsg4Cars.Models
             Mileage = int.Parse(mileage);
             Color = color;
         }
+
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Please enter a name.")]
         public string MakeModel { get; set; }
+
+        [Required(ErrorMessage = "Please enter a year.")]
+        [Range(1889, 2050, ErrorMessage = "Year must be between 1889 and now.")]
         public int Year { get; set; }
+
+        [Required(ErrorMessage = "Please enter a year.")]
+        [Range(0, 1000000000, ErrorMessage = "Price must be a positive number.")]
         public int Price { get; set; }
+
+        [Required(ErrorMessage = "Please enter a year.")]
+        [Range(0, 100000000, ErrorMessage = "Mileage must be a positive number.")]
         public int Mileage { get; set; }
+
+        [Required(ErrorMessage = "Please enter a color.")]
         public string Color { get; set; }
 
         public string IDString

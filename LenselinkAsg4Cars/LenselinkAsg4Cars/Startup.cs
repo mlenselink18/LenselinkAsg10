@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using LenselinkAsg10.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +21,9 @@ namespace LenselinkAsg4Cars
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<CarContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("CarConnectionString")).EnableSensitiveDataLogging());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,15 +46,6 @@ namespace LenselinkAsg4Cars
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Home}/{action=Index}/{id?}");
-                //endpoints.MapControllerRoute(
-                //    name: "paging",
-                //    pattern: "{controller}/{action}/{id}/page{page}");
-                //endpoints.MapControllerRoute(
-                //    name: "paging_and_sorting",
-                //    pattern: "{controller}/{action}/{id}/page{page}/sort-by-{sortby}");
             });
         }
     }

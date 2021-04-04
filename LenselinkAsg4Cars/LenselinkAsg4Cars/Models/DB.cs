@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LenselinkAsg10.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LenselinkAsg4Cars.Models
@@ -248,10 +249,6 @@ namespace LenselinkAsg4Cars.Models
             {
                 makeList = GetCars();
             }
-            //if (isMakeAsc)
-            //    sortedList = cars.OrderBy(o => o.MakeModel).ToList();
-            //else
-            //    sortedList = cars.OrderByDescending(o => o.MakeModel).ToList();
 
             return makeList;
         }
